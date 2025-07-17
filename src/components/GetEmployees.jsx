@@ -4,16 +4,20 @@ import axios from "axios";
 
 const GetEmployees = () => {
   const [employees, setEmployees] = useState([]);
-  const token = localStorage.getItem("token");
+  const [checkedAuth, setCheckedAuth] = useState(false); 
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchEmployees = async () => {
-      if (!token) {
-        alert("You must be logged in to view employees.");
-        return;
-      }
+    const token = localStorage.getItem("token");
 
+    
+    if (!token) {
+      navigate("/login");
+      return;
+    }
+
+   
+    const fetchEmployees = async () => {
       try {
         const response = await axios.get("http://localhost:8080/employee", {
           headers: {
@@ -22,13 +26,18 @@ const GetEmployees = () => {
         });
         setEmployees(response.data);
       } catch (err) {
-        console.error("Error fetching employees", err);
-        alert("Unauthorized or Error");
+        console.error("Unauthorized or error", err);
+        alert("Unauthorized");
+        navigate("/login");
+      } finally {
+        setCheckedAuth(true); 
       }
     };
 
     fetchEmployees();
-  }, []);
+  }, [navigate]);
+
+  const token = localStorage.getItem("token");
 
   const handleDelete = async (empId) => {
     try {
@@ -52,6 +61,9 @@ const GetEmployees = () => {
   const handleViewTasks = (empId) => {
     navigate(`/employee/${empId}/tasks`);
   };
+
+  
+  if (!checkedAuth) return null;
 
   return (
     <div className="container mt-4">

@@ -9,7 +9,7 @@ import GetEmployees from "./components/GetEmployees";
 import EditEmployee from './components/EditEmployee';
 import EmployeesList from './components/EmployeesList';
 import EmployeeTasks from './components/EmployeeTasks';
-
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
@@ -19,11 +19,20 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
+          <Route
+          path="/employee"
+          element={
+            <ProtectedRoute>
+              <GetEmployees />
+            </ProtectedRoute>
+          }
+        />
           <Route path="/signup" element={<Signup />} />
           <Route path="/employee" element={<GetEmployees />} />
           <Route path="/edit/:empId" element={<EditEmployee />} />
           <Route path="/employeelist" element={<EmployeesList />} />
           <Route path="/employee/:empId/tasks" element={<EmployeeTasks />} />
+          
 
         </Routes>
       </div>

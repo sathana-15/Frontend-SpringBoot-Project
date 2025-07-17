@@ -23,6 +23,9 @@ const Login = () => {
      
       localStorage.setItem("token", token);
       localStorage.setItem("role", role);
+      
+      window.dispatchEvent(new Event("storage")); 
+
 
       alert("Login Successful");
       navigate("/employee"); 
