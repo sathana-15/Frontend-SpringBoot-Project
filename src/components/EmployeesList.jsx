@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const Register = () => {
+const EmployeesList = () => {
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -119,5 +119,4 @@ const Register = () => {
     </div>
   );
 };
-
-export default Register;
+export default EmployeesList;

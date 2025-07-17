@@ -42,9 +42,7 @@ const EmployeeTasks = () => {
         <ul className="list-group">
           {tasks.map((task) => (
             <li key={task.taskId} className="list-group-item">
-              <strong>{task.title}</strong>
-              {/* Uncomment below if description exists */}
-              {/* - {task.description} */}
+              <strong>{task.title}</strong> — <span className="badge bg-secondary">{task.status}</span>
             </li>
           ))}
         </ul>
