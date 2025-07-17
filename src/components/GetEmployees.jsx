@@ -7,7 +7,7 @@ const GetEmployees = () => {
   const [checkedAuth, setCheckedAuth] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Task modal state
+ 
   const [showModal, setShowModal] = useState(false);
   const [newTaskTitle, setNewTaskTitle] = useState("");
   const [newTaskStatus, setNewTaskStatus] = useState("Yet to Start");
