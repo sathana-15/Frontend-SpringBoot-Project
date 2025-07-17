@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 const EditEmployee = () => {
-  const { empId } = useParams(); // ✅ Get empId from URL
+  const { empId } = useParams();
   const navigate = useNavigate();
   const token = localStorage.getItem('token');
 
@@ -15,7 +15,7 @@ const EditEmployee = () => {
     roleNames: ''
   });
 
-  // ✅ Fetch employee details on mount
+ 
   useEffect(() => {
     const fetchEmployee = async () => {
       try {
@@ -34,7 +34,7 @@ const EditEmployee = () => {
           name: data.name,
           email: data.email,
           userName: data.userName,
-          password: '', // keep password empty
+          password: '', 
           roleNames: data.roles.map((role) => role.roleName).join(',')
         });
       } catch (err) {
@@ -47,7 +47,7 @@ const EditEmployee = () => {
     }
   }, [empId]);
 
-  // ✅ Handle input change
+  
   const handleChange = (e) => {
     setFormData((prev) => ({
       ...prev,
@@ -55,7 +55,7 @@ const EditEmployee = () => {
     }));
   };
 
-  // ✅ Submit updated employee
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -76,7 +76,7 @@ const EditEmployee = () => {
 
       const result = await res.text();
       alert(result);
-      navigate("/employee"); // ✅ Redirect after update
+      navigate("/employee"); 
     } catch (err) {
       alert('Error updating employee: ' + err.message);
     }

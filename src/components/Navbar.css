@@ -1,9 +1,9 @@
-/* Custom background class */
+
 .bg-custom {
-  background-color: rgb(65, 2, 86); /* violet */
+  background-color: rgb(65, 2, 86); 
 }
 
-/* Reuse your button styling */
+
 .nav-btn {
   margin-left: 15px;
   color: white;

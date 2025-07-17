@@ -1,4 +1,4 @@
-// src/pages/Login.jsx
+
 
 import { useState } from "react";
 import axios from "axios";
@@ -20,15 +20,15 @@ const Login = () => {
       const token = res.data.token;
       const role = res.data.role;
 
-      // ✅ Save token and role in localStorage
+     
       localStorage.setItem("token", token);
       localStorage.setItem("role", role);
 
-      alert("Login Successful ✅");
-      navigate("/employee"); // ✅ Redirect after login
+      alert("Login Successful");
+      navigate("/employee"); 
     } catch (e) {
       console.log("Login Error", e);
-      alert("Invalid Credentials ❌");
+      alert("Invalid Credentials");
     }
   }
 

@@ -5,7 +5,7 @@ const EmployeeTasks = () => {
   const { empId } = useParams();
   const token = localStorage.getItem("token");
   const [tasks, setTasks] = useState([]);
-  const [loading, setLoading] = useState(true); // To control fallback message
+  const [loading, setLoading] = useState(true); 
 
   useEffect(() => {
     const fetchTasks = async () => {
